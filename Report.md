@@ -83,7 +83,7 @@ graph TD
     I --> L[Construct Text Prompt]
     J --> L
     
-    K --> M[Send to Gemini 2.0 Flash]
+    K --> M[Send to Gemini 2.5 Flash]
     L --> M
     
     M --> N{AI Classification Result}
