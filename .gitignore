@@ -1,0 +1,8 @@
+.ipynb_checkpoints
+.virtual_documents
+.env
+.vscode
+credentials.json
+token.json
+__pycache__/
+*.pyc
