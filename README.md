@@ -21,9 +21,9 @@ Powered by **Google Gemini 2.5 Flash**, it uses Multimodal AI (Text + Vision) to
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yuvii2109/edxso_assignment_3.git
+git clone https://github.com/yuvii2109/smart_drive_organizer.git
 
-cd edxso_assignment_3
+cd smart_drive_organizer
 ```
 
 ### 2. Install Dependencies
