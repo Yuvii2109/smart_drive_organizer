@@ -62,3 +62,40 @@ The following screenshots demonstrate the system's performance on a test dataset
 
 *The system successfully created categories (Academics, Finance, HR, Marketing) and moved the files correctly based on their content.*
 ![After Screenshot](https://drive.google.com/uc?export=view&id=1KiGyq7I9eeZWHiEHwVFNz2yAplWw9cVV)
+
+## 7. Flowchart
+
+graph TD
+    A([Start]) --> B[Authenticate with Google Drive API]
+    B --> C[Scan Target Folder]
+    C --> D{Files Found?}
+    D -- No --> E([End Process])
+    D -- Yes --> F[Iterate through next File]
+    
+    F --> G{Check File Type}
+    
+    G -- "Image (JPG/PNG)" --> H[Read Binary Image Data]
+    G -- "Google Doc" --> I[Export to Plain Text]
+    G -- "PDF / Text" --> J[Extract Text with PyPDF2]
+    
+    H --> K[Construct Multimodal Prompt]
+    I --> L[Construct Text Prompt]
+    J --> L
+    
+    K --> M[Send to Gemini 2.0 Flash]
+    L --> M
+    
+    M --> N{AI Classification Result}
+    
+    N -- "Finance, HR, etc." --> O[Check if Category Folder Exists]
+    N -- "Unsure / Error" --> P[Set Category to 'Misc']
+    P --> O
+    
+    O -- No --> Q[Create New Folder]
+    O -- Yes --> R[Get Folder ID]
+    Q --> R
+    
+    R --> S[Move File to Destination]
+    S --> T[Wait 60s Rate Limit Cooling]
+    
+    T --> D
