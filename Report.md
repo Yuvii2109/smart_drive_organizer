@@ -65,6 +65,7 @@ The following screenshots demonstrate the system's performance on a test dataset
 
 ## 7. Flowchart
 
+```mermaid
 graph TD
     A([Start]) --> B[Authenticate with Google Drive API]
     B --> C[Scan Target Folder]
@@ -99,3 +100,4 @@ graph TD
     S --> T[Wait 60s Rate Limit Cooling]
     
     T --> D
+```
